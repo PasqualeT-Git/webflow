@@ -11,7 +11,8 @@ const confirmData = document.querySelector('#confirm-data')
 const endpoint = 'https://8917-217-138-158-2.ngrok.io'
 
 confirmData.addEventListener('click', async () => {
-  const res = fetch(endpoint + '/send_data', {
+  console.log(data_report['manhattanjson'])
+  const res = await fetch(endpoint + '/send_data', {
     'method': 'POST',
     'body': data_report['manhattanjson']
   })
