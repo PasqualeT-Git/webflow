@@ -299,7 +299,7 @@ const verifySuccess = document.querySelector('#verify-success')
 
 
 sendVerificationButton.addEventListener('click',async () => {
-  sendVerificationButton.display.style = 'none'
+  sendVerificationButton.style.display = 'none'
   getLottieAnimationById('verify-loading-lottie').play()
   const res = await fetch(endpoint + `/authentication?email=${inputEmail.value}`)
   
