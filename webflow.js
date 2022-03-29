@@ -56,6 +56,8 @@ const manageSubmit = async (e) => {
       window.sessionStorage.setItem(key, value)
     }
 
+    window.sessionStorage.setItem('manhattanjson', dataJson.manhattanjson)
+
     formLoading.stop()
     getLottieAnimationById('form-success-lottie').play()
     setTimeout(() => window.location.href = '/success', 2500)
