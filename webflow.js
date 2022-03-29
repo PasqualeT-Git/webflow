@@ -280,7 +280,6 @@ const handleCheckUser = async () => {
 checkUserButton.addEventListener('click', handleCheckUser)
 inputEmail.addEventListener('keydown', (e) => {if (e.key === 'Enter') handleCheckUser()})
 
-
 //* Register new user structure
 const formNewUser = document.querySelector('#form-new-user')
 const modalNewUser = document.querySelector('#modal-new-user')
@@ -296,7 +295,6 @@ const sendVerificationButton = document.querySelector('#send-verification-button
 const modalVerifyUser = document.querySelector('#modal-verify-user') 
 const verifyContainer = document.querySelector('#verify-user')
 const verifySuccess = document.querySelector('#verify-success')
-
 
 sendVerificationButton.addEventListener('click',async () => {
   sendVerificationButton.style.display = 'none'
