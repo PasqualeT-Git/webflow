@@ -8,9 +8,30 @@ const others = document.getElementById('others_n').innerHTML = data_report['othe
 
 //* Confirm retrieved data structure
 const confirmData = document.querySelector('#confirm-data')
-const endpoint = 'https://8917-217-138-158-2.ngrok.io'
+
+const lottie = Webflow.require('lottie').lottie;
+const endpoint = 'https://8917-217-138-158-2.ngrok.io';
+
+const getLottieAnimationById = (lottieId) => {
+  const animations = lottie.getRegisteredAnimations();
+  const loading = document.getElementById(lottieId)
+  const getLottie = animations.filter(item => item.wrapper === loading)[0];
+  return getLottie
+}
+
+const mergeDataModal = document.querySelector('#mergedata-modal')
+const mergeDataLoading = document.querySelector('#mergedata-loading-modal')
+const mergeDataSuccess = document.querySelector('#mergedata-success-modal')
+const mergeDataError = document.querySelector('#mergedata-error-modal')
+
+const mergeDataLoadingLottie = getLottieAnimationById('mergedata-loading-lottie')
+const mergeDataSuccessLottie = getLottieAnimationById('mergedata-success-lottie')
+const mergeDataErrorLottie = getLottieAnimationById('mergedata-error-lottie')
 
 confirmData.addEventListener('click', async () => {
+  mergeDataLoading.style.display = 'block'
+  mergeDataLoadingLottie.play()
+
   const res = await fetch(endpoint + '/send_data', {
     'method': 'POST',
     headers: {
@@ -19,5 +40,25 @@ confirmData.addEventListener('click', async () => {
     'body': data_report['manhattanjson']
   })
 
-  console.log(res)
+  mergeDataLoadingLottie.stop()
+
+  if (res.status === 200) {
+    mergeDataSuccessLottie.play()
+    mergeDataLoading.style.display = ''
+    mergeDataSuccess.style.display = 'block'
+  } else {
+    mergeDataErrorLottie.play()
+    mergeDataLoading.style.display = ''
+    mergeDataError.style.display = 'block'
+  }
 })
+
+document.body.addEventListener('click', ({ target }) => {
+  if (target != mergeDataModal || target.id === 'close-modal-validation') {
+    mergeDataModal.style.display = ''
+  }
+})
+
+setTimeout(() => {
+  lottie.stop()
+}, 80);
