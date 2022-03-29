@@ -12,7 +12,7 @@ const getLottieAnimationById = (lottieId) => {
 //* Submit form structure
 const getDataToSubmit = () => {
   const emailUser = document.getElementById('email').value
-  const pasta = document.getElementById('Pasta').value
+  const pasta = document.getElementById('Pasta').value || 'pasta'
   const form = document.querySelector('#email-form')
   const formdata = {}
     
@@ -59,7 +59,7 @@ const manageSubmit = async (e) => {
     formLoading.stop()
     getLottieAnimationById('form-success-lottie').play()
     setTimeout(() => window.location.href = '/success', 2500)
-    
+
   } else {
     formLoading.stop()
     getLottieAnimationById('form-error-lottie').play()
