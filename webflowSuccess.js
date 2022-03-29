@@ -24,13 +24,9 @@ const mergeDataLoading = document.querySelector('#mergedata-loading-modal')
 const mergeDataSuccess = document.querySelector('#mergedata-success-modal')
 const mergeDataError = document.querySelector('#mergedata-error-modal')
 
-const mergeDataLoadingLottie = getLottieAnimationById('mergedata-loading-lottie')
-const mergeDataSuccessLottie = getLottieAnimationById('mergedata-success-lottie')
-const mergeDataErrorLottie = getLottieAnimationById('mergedata-error-lottie')
-
 confirmData.addEventListener('click', async () => {
   mergeDataLoading.style.display = 'block'
-  mergeDataLoadingLottie.play()
+  getLottieAnimationById('mergedata-loading-lottie').play()
 
   const res = await fetch(endpoint + '/send_data', {
     'method': 'POST',
@@ -40,14 +36,14 @@ confirmData.addEventListener('click', async () => {
     'body': data_report['manhattanjson']
   })
 
-  mergeDataLoadingLottie.stop()
+  getLottieAnimationById('mergedata-loading-lottie').stop()
 
   if (res.status === 200) {
-    mergeDataSuccessLottie.play()
+    getLottieAnimationById('mergedata-success-lottie').play()
     mergeDataLoading.style.display = ''
     mergeDataSuccess.style.display = 'block'
   } else {
-    mergeDataErrorLottie.play()
+    getLottieAnimationById('mergedata-error-lottie').play()
     mergeDataLoading.style.display = ''
     mergeDataError.style.display = 'block'
   }
