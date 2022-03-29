@@ -5,3 +5,10 @@ const trab = document.getElementById('trab_n').innerHTML = data_report['trab'] |
 const civel = document.getElementById('civ_n').innerHTML = data_report['civ'] || "0";
 const fed = document.getElementById('fed_n').innerHTML = data_report['fed'] || "0";
 const others = document.getElementById('others_n').innerHTML = data_report['others'] || "0";
+
+//* Confirm retrieved data structure
+const confirmData = document.querySelector('#confirm-data')
+
+confirmData.addEventListener('click', () => {
+  
+})
