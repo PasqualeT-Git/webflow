@@ -25,6 +25,7 @@ const mergeDataSuccess = document.querySelector('#mergedata-success-modal')
 const mergeDataError = document.querySelector('#mergedata-error-modal')
 
 confirmData.addEventListener('click', async () => {
+  mergeDataModal.style.display = 'block'
   mergeDataLoading.style.display = 'block'
   getLottieAnimationById('mergedata-loading-lottie').play()
 
@@ -40,18 +41,20 @@ confirmData.addEventListener('click', async () => {
 
   if (res.status === 200) {
     getLottieAnimationById('mergedata-success-lottie').play()
-    mergeDataLoading.style.display = ''
+    mergeDataLoading.style.display = 'none'
     mergeDataSuccess.style.display = 'block'
   } else {
     getLottieAnimationById('mergedata-error-lottie').play()
-    mergeDataLoading.style.display = ''
+    mergeDataLoading.style.display = 'none'
     mergeDataError.style.display = 'block'
   }
+
+  setTimeout(() => lottie.stop(), 5000)
 })
 
 document.body.addEventListener('click', ({ target }) => {
   if (target != mergeDataModal || target.id === 'close-modal-validation') {
-    mergeDataModal.style.display = ''
+    mergeDataModal.style.display = 'none'
   }
 })
 
