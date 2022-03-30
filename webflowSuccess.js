@@ -48,17 +48,16 @@ confirmData.addEventListener('click', async () => {
     mergeDataLoading.style.display = 'none'
     mergeDataError.style.display = 'block'
   }
-
-  setTimeout(() => lottie.stop(), 5000)
 })
 
-// document.body.addEventListener('click', ({ target }) => {
-//   if (target != mergeDataModal || 
-//       target.id === 'close-modal-validation' && 
-//       mergeDataModal.style.display === 'block') {
-//     mergeDataModal.style.display = 'none'
-//   }
-// })
+document.body.addEventListener('click', ({ target }) => {
+  if (  mergeDataModal.style.display === 'block' && 
+        target != mergeDataModal || 
+        target.id === 'close-modal-validation' ) {
+    lottie.stop()
+    mergeDataModal.style.display = 'none'
+  }
+})
 
 setTimeout(() => {
   lottie.stop()
