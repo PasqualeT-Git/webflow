@@ -10,7 +10,7 @@ const others = document.getElementById('others_n').innerHTML = data_report['othe
 const confirmData = document.querySelector('#confirm-data')
 
 const lottie = Webflow.require('lottie').lottie;
-const endpoint = 'https://8917-217-138-158-2.ngrok.io';
+const endpoint = 'https://96d1-217-138-158-2.ngrok.io';
 
 const getLottieAnimationById = (lottieId) => {
   const animations = lottie.getRegisteredAnimations();
