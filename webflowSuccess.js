@@ -53,7 +53,9 @@ confirmData.addEventListener('click', async () => {
 })
 
 document.body.addEventListener('click', ({ target }) => {
-  if (target != mergeDataModal || target.id === 'close-modal-validation') {
+  if (target != mergeDataModal || 
+      target.id === 'close-modal-validation' && 
+      mergeDataModal.style.display === 'block') {
     mergeDataModal.style.display = 'none'
   }
 })
