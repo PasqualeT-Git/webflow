@@ -1,6 +1,6 @@
 // * Global scope variables
 const lottie = Webflow.require('lottie').lottie;
-const endpoint = 'https://96d1-217-138-158-2.ngrok.io';
+const endpoint = 'https://a385-217-138-158-2.ngrok.io';
 
 const getLottieAnimationById = (lottieId) => {
   const animations = lottie.getRegisteredAnimations();
