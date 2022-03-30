@@ -57,6 +57,7 @@ const manageSubmit = async (e) => {
     }
 
     window.sessionStorage.setItem('manhattanjson', dataJson.manhattanjson)
+    window.sessionStorage.setItem('user', dataJson.user)
 
     formLoading.stop()
     getLottieAnimationById('form-success-lottie').play()

@@ -29,7 +29,7 @@ confirmData.addEventListener('click', async () => {
   mergeDataLoading.style.display = 'block'
   getLottieAnimationById('mergedata-loading-lottie').play()
 
-  const res = await fetch(endpoint + '/send_data', {
+  const res = await fetch(endpoint + `/send_data?email=${data_report['user']}`, {
     'method': 'POST',
     headers: {
       "Content-type": "application/json"
