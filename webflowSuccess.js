@@ -28,7 +28,7 @@ confirmData.addEventListener('click', async () => {
   mergeDataModal.style.display = 'block'
   mergeDataLoading.style.display = 'block'
   getLottieAnimationById('mergedata-loading-lottie').play()
-
+  console.log('test')
   const res = await fetch(endpoint + '/send_data', {
     'method': 'POST',
     headers: {
@@ -52,13 +52,13 @@ confirmData.addEventListener('click', async () => {
   setTimeout(() => lottie.stop(), 5000)
 })
 
-document.body.addEventListener('click', ({ target }) => {
-  if (target != mergeDataModal || 
-      target.id === 'close-modal-validation' && 
-      mergeDataModal.style.display === 'block') {
-    mergeDataModal.style.display = 'none'
-  }
-})
+// document.body.addEventListener('click', ({ target }) => {
+//   if (target != mergeDataModal || 
+//       target.id === 'close-modal-validation' && 
+//       mergeDataModal.style.display === 'block') {
+//     mergeDataModal.style.display = 'none'
+//   }
+// })
 
 setTimeout(() => {
   lottie.stop()
