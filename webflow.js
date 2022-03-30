@@ -222,6 +222,7 @@ const validateEmail = (mail) => {
 //* Check user structure
 const inputEmail = document.querySelector('input[name="email"]');
 const checkUserButton = document.querySelector('#check-user')
+const modalVerified = document.querySelector('#modal-verified')
 const queryParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(queryParams.entries());
 let userIsVerified = false
@@ -261,6 +262,9 @@ const handleCheckUser = async () => {
       user = true
       nextFakeContainer.style.display = ''
       checkUserContainer.style.display = ''
+      modalVerified.style.display = 'block'
+
+      setTimeout(() => modalVerified.style.display = '', 2000);
     }
 
     setTimeout(() => {

@@ -57,6 +57,8 @@ document.body.addEventListener('click', ({ target }) => {
         target.id === 'close-modal-validation' ) {
     lottie.stop()
     mergeDataModal.style.display = 'none'
+    mergeDataSuccess.style.display = 'none'
+    mergeDataError.style.display = 'none'
   }
 })
 
