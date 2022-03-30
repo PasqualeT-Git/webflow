@@ -28,7 +28,7 @@ confirmData.addEventListener('click', async () => {
   mergeDataModal.style.display = 'block'
   mergeDataLoading.style.display = 'block'
   getLottieAnimationById('mergedata-loading-lottie').play()
-  console.log('test')
+
   const res = await fetch(endpoint + '/send_data', {
     'method': 'POST',
     headers: {
@@ -42,11 +42,11 @@ confirmData.addEventListener('click', async () => {
   if (res.status === 200) {
     getLottieAnimationById('mergedata-success-lottie').play()
     mergeDataLoading.style.display = 'none'
-    mergeDataSuccess.style.display = 'block'
+    mergeDataSuccess.style.display = 'flex'
   } else {
     getLottieAnimationById('mergedata-error-lottie').play()
     mergeDataLoading.style.display = 'none'
-    mergeDataError.style.display = 'block'
+    mergeDataError.style.display = 'flex'
   }
 })
 
