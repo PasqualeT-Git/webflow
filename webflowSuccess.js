@@ -51,7 +51,8 @@ confirmData.addEventListener('click', async () => {
 })
 
 document.body.addEventListener('click', ({ target }) => {
-  if (  mergeDataModal.style.display === 'block' && 
+  if (  target != confirmData &&
+        mergeDataModal.style.display === 'block' && 
         target != mergeDataModal || 
         target.id === 'close-modal-validation' ) {
     lottie.stop()
